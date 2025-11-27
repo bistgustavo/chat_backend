@@ -136,7 +136,12 @@ palm_mind_backend/
 └── README.md
 ```
 
-## Database Models
+## Sample user email and password to login
+
+1.  Email : bistgaurav477@gmail.com
+    password : Gaurav@1
+2.  Email : bistgaurav@gmail.com
+    password : Gaurav@1
 
 ### User Model
 
