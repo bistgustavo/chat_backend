@@ -5,6 +5,7 @@ A full-featured real-time chat application backend built with Node.js, Express, 
 ## Features
 
 ### Backend Features
+
 - ✅ User Authentication (Register/Login/Logout) with JWT
 - ✅ JWT-based authorization middleware
 - ✅ Real-time messaging with Socket.IO
@@ -17,9 +18,10 @@ A full-featured real-time chat application backend built with Node.js, Express, 
 - ✅ Secure password hashing with bcrypt
 
 ### Socket.IO Events
+
 - **Client → Server:**
+
   - `sendMessage` - Send a message to another user
-  - `typing` - Notify when user is typing
 
 - **Server → Client:**
   - `onlineUsers` - List of currently online user IDs
@@ -27,7 +29,6 @@ A full-featured real-time chat application backend built with Node.js, Express, 
   - `userLeft` - Notification when a user disconnects
   - `newMessage` - New message received
   - `messageSent` - Confirmation of sent message
-  - `userTyping` - Another user is typing
 
 ## Tech Stack
 
@@ -47,19 +48,22 @@ A full-featured real-time chat application backend built with Node.js, Express, 
 ## Installation
 
 1. **Clone the repository**
+
    ```bash
    cd palm_mind_backend
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Configure environment variables**
    Create a `.env` file in the root directory:
+
    ```env
-   PORT=3001
+   PORT=3000
    MONGODB_URI=mongodb://localhost:27017
    CORS_ORIGIN=http://localhost:5173
    JWT_SECRET=your-secret-key-change-this-in-production
@@ -71,6 +75,7 @@ A full-featured real-time chat application backend built with Node.js, Express, 
    Ensure MongoDB is running on your system.
 
 5. **Run the application**
+
    ```bash
    # Development mode with auto-reload
    npm run dev
@@ -82,15 +87,18 @@ A full-featured real-time chat application backend built with Node.js, Express, 
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/v1/user/register` - Register a new user
 - `POST /api/v1/user/login` - Login user
 - `POST /api/v1/user/logout` - Logout user (Protected)
 
 ### Users
+
 - `GET /api/v1/user/all` - Get all users (Protected)
 - `GET /api/v1/user/stats` - Get dashboard stats (Protected)
 
 ### Messages
+
 - `POST /api/v1/message/send` - Send a message (Protected)
 - `GET /api/v1/message/:userId` - Get messages with a specific user (Protected)
 - `GET /api/v1/message/` - Get all conversations (Protected)
@@ -131,6 +139,7 @@ palm_mind_backend/
 ## Database Models
 
 ### User Model
+
 ```javascript
 {
   username: String,
@@ -143,6 +152,7 @@ palm_mind_backend/
 ```
 
 ### Message Model
+
 ```javascript
 {
   conversationId: ObjectId (ref: Conversation),
@@ -154,6 +164,7 @@ palm_mind_backend/
 ```
 
 ### Conversation Model
+
 ```javascript
 {
   participants: [ObjectId] (ref: User),
@@ -165,17 +176,18 @@ palm_mind_backend/
 ## Socket.IO Authentication
 
 Socket connections require JWT authentication:
+
 ```javascript
 const socket = io(SOCKET_URL, {
   auth: {
-    token: 'your-jwt-token'
-  }
+    token: "your-jwt-token",
+  },
 });
 ```
 
 ## Development
 
-- The server runs on port `3001` by default
+- The server runs on port `3000` by default
 - CORS is configured to allow requests from the frontend (`http://localhost:5173`)
 - JWT tokens expire after 7 days by default
 - Passwords are hashed using bcrypt with 10 salt rounds
@@ -204,4 +216,3 @@ ISC
 ## Author
 
 Gaurav Bist
-
